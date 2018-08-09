@@ -49,7 +49,10 @@ class Point():
         return dist
 
     def __str__(self):
-        return ("{0}(({1},{2},{3}),{4})".format(self.__class__.__name__, self.x, self.y, self.z, self.domain))
+        return ("{0}(Coordinates->( {1} / {2} / {3} ),Domain->{4})".format(self.__class__.__name__, self.x, self.y, self.z,self.domain))
+
+    def __repr__(self):
+        return ("{0},{1},{2},{4}".format(self.x, self.y, self.z,self.domain))
 
 # A Particle class
 class Particle(Point):
@@ -77,7 +80,10 @@ class Particle(Point):
         return len(self.Neighbours)
 
     def __str__(self):
-        return ("{0}({1},({2}/))")
+        return ("{0}(Idx->{1},Coordinates->( {2} / {3} / {4} ),Mass->{5},Potential->{6})".format(self.__class__.__name__, self.idx, self.x, self.y, self.z,self.m,self.phi))
+
+    def __repr__(self):
+        return ("{0},{1},{2},{4},{5},{6}".format(self.x, self.y, self.z,self.domain,self.mass,self.idx))
 
 # Create random particles
 def createParticles(n):
